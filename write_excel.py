@@ -33,7 +33,7 @@ with connect(connection, autocommit=True) as excel:
     # Limpa uma célula
     cursor.execute(f"UPDATE [Produtos$] SET Valor = ? WHERE Indice = ?", None, 5)
     
-    # Exclui uma linha
+    # Exclui uma linha (não remove o espaço, somente valores)
     clear = [ None for number in range(0, 6) ]
     cursor.execute(f"UPDATE [Produtos$] SET Indice = ?, Produtos = ?, Valor = ?, Desconto = ?,	Data = ?, Compras = ? WHERE Indice = ?", *clear, 4)
     
